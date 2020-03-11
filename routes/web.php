@@ -23,3 +23,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/newpost', 'PostsController@create')->name('newpost');
 Route::post('/newpost', 'PostsController@store')->name('store');
 Route::get('/postview', 'PostsController@index')->name('postview');
+
+// Route::get('/newcomment/{type?}', 'CommentsController@create')->name('newcomment');
+Route::get('/newcomment/{type}/{post_id}', 'CommentsController@create')->name('newcomment');
+Route::post('/newpost', 'CommentsController@store')->name('commentstore');
+Route::get('/commentview', 'CommentsController@index')->name('commentview');

@@ -18,7 +18,11 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-3">comment</div>
+                    <div class="col-md-3">
+                        <a class="navbar-brand" href="newcomment/1/{{$post->post_id}}">
+                            comment
+                        </a>
+                    </div>
                     <div class="col-md-3">no of Comment</div>
                     <div class="col-md-3">like</div>
                     <div class="col-md-3">No of Likes</div>

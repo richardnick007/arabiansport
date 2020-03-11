@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePostsTable extends Migration
+class Foreignkey extends Migration
 {
     /**
      * Run the migrations.
@@ -14,12 +14,12 @@ class CreatePostsTable extends Migration
     public function up()
     {
         Schema::create('posts', function (Blueprint $table) {
-            $table->bigIncrements('post_id');
-            $table->unsignedBigInteger('user_id');
-            $table->string('caption');
-            $table->text('post');
-            $table->string('picture')->nullable();
-            $table->timestamps();
+            $table->foreign('user_id')->reference('id')->on('users')->onDelete('cascade');
+        });
+
+        Schema::create('comments', function (Blueprint $table) {
+            $table->foreign('user_id')->reference('id')->on('users')->onDelete('cascade');
+            $table->foreign('post_id')->reference('post_id')->on('posts')->onDelete('cascade');
         });
     }
 
@@ -30,6 +30,6 @@ class CreatePostsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('posts');
+        //
     }
 }

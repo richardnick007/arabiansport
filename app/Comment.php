@@ -12,7 +12,7 @@ class Comment extends Model
      * @var array
      */
     protected $fillable = [
-        'comment'
+        'comment', 'post_id', 'user_id', 'type'
     ];
 
      // get user that owns the post
