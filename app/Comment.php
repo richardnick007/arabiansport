@@ -17,11 +17,11 @@ class Comment extends Model
 
      // get user that owns the post
      function user(){
-        return $this->belongsTo(User::class,'user_id');
+        return $this->belongsTo('App\User');
     }
 
     // get comments for this post
-    function posts(){
-        return $this->hasMany('App\comment', 'post_id');
+    function postt(){
+        return $this->belongsTo('App\Post', 'post_id', 'post_id');
     }
 }

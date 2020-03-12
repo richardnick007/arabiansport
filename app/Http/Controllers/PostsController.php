@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use DB;
 use Auth;
 use App\Post;
+use App\Comment;
 
 class PostsController extends Controller
 {
@@ -25,7 +27,10 @@ class PostsController extends Controller
      */
     public function index()
     {
-        $posts = post::orderBy('created_at','desc')->get();
+        $posts = post::orderBy('created_at','desc')
+        ->withCount('comments')
+        ->with('user')
+        ->get();
         return view('post.postview', compact('posts'));
     }
 

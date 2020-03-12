@@ -23,9 +23,12 @@ class CommentsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($type, $post_id)
     {
-        $comments = comment::orderBy('created_at','desc')->get();
+        $comments = comment::where('type',$type)
+        ->where('post_id', $post_id)->with('user')
+        ->get();
+        // dd($comments);
         return view('comments.commentview', compact('comments'));
     }
 
@@ -65,6 +68,24 @@ class CommentsController extends Controller
             return redirect('commentview')->with('meassage','Comment sucsessfuly uploaded');
     }
 
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function like(Request $request, $post_id)
+    {
+
+            Comment::create([
+                'comment'=>'',
+                'type'=> 0,
+                'post_id'=> $post_id,
+                'user_id'=>Auth::user()->id
+            ]);
+    
+            return redirect()->back()->with('meassage','Comment sucsessfuly uploaded');
+    }
     /**
      * Display the specified resource.
      *
