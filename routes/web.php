@@ -28,4 +28,4 @@ Route::get('/postview', 'PostsController@index')->name('postview');
 Route::get('/newcomment/{type}/{post_id}', 'CommentsController@create')->name('newcomment');
 Route::post('/newcomment', 'CommentsController@store')->name('commentstore');
 Route::get('/commentview/{type}/{post_id}', 'CommentsController@index')->name('commentview');
-Route::get('/like/{post_id}', 'CommentsController@like')->name('like');
+Route::get('/like/{post_id}', 'LikesController@like')->name('like');

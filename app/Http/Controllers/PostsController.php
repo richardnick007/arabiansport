@@ -29,6 +29,7 @@ class PostsController extends Controller
     {
         $posts = post::orderBy('created_at','desc')
         ->withCount('comments')
+        ->withCount('likes')
         ->with('user')
         ->get();
         return view('post.postview', compact('posts'));

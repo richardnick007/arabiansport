@@ -21,6 +21,11 @@ class Foreignkey extends Migration
             $table->foreign('user_id')->reference('id')->on('users')->onDelete('cascade');
             $table->foreign('post_id')->reference('post_id')->on('posts')->onDelete('cascade');
         });
+
+        Schema::create('likes', function (Blueprint $table) {
+            $table->foreign('user_id')->reference('id')->on('users')->onDelete('cascade');
+            $table->foreign('post_id')->reference('post_id')->on('posts')->onDelete('cascade');
+        });
     }
 
     /**

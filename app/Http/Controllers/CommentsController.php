@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use DB;
 use Auth;
+use App\Post;
 use App\Comment;
 
 class CommentsController extends Controller
@@ -25,8 +27,7 @@ class CommentsController extends Controller
      */
     public function index($type, $post_id)
     {
-        $comments = comment::where('type',$type)
-        ->where('post_id', $post_id)->with('user')
+        $comments = comment::where('post_id', $post_id)->with('user')
         ->get();
         // dd($comments);
         return view('comments.commentview', compact('comments'));
@@ -50,42 +51,22 @@ class CommentsController extends Controller
      */
     public function store(Request $request)
     {
-        $data=$request->all();
-        $type = $data['type'];
-        if($type = 1){
+    
             $request->validate([
                 'comment'=>'min:10'
                 ]); 
-             }
-
+             
+            $data=$request->all();
             Comment::create([
                 'comment'=>$data['comment'],
-                'type'=>$type,
                 'post_id'=> $data['post_id'],
                 'user_id'=>Auth::user()->id
             ]);
     
-            return redirect('commentview')->with('meassage','Comment sucsessfuly uploaded');
+            return redirect('postview')->with('meassage','Comment sucsessfuly uploaded');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function like(Request $request, $post_id)
-    {
-
-            Comment::create([
-                'comment'=>'',
-                'type'=> 0,
-                'post_id'=> $post_id,
-                'user_id'=>Auth::user()->id
-            ]);
     
-            return redirect()->back()->with('meassage','Comment sucsessfuly uploaded');
-    }
     /**
      * Display the specified resource.
      *

@@ -25,4 +25,9 @@ class Post extends Model
         // return $this->hasMany('App\comment', 'post_id');
         return $this->hasMany('App\Comment', 'post_id', 'post_id');
     }
+
+    function likes(){
+        // return $this->hasMany('App\comment', 'post_id');
+        return $this->hasMany('App\Like', 'post_id', 'post_id');
+    }
 }
