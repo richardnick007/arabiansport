@@ -21,6 +21,10 @@ class CreatePostsTable extends Migration
             $table->string('picture')->nullable();
             $table->timestamps();
         });
+        
+        Schema::table('posts', function (Blueprint $table) {
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+        });
     }
 
     /**

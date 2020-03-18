@@ -7,19 +7,14 @@
             <div class="card">
                 <div class="card-header">Post view</div>
 
-                @foreach($posts as $key=>$post)
                     <div class="row ">
                         <div class="col-md-4">
-                            <img src="{{$post->picture}}" alt="Post picture unavaliable" width="100%"/>
+                            <img src="{{ asset($post->picture)}}" alt="Post picture unavaliable" width="100%"/>
                         </div>    
                         <div class="col-md-6">
                             <h3>{{$post->caption}}</h3>
                             <h5>by {{$post->user->name}}</h5>
-                            {{-- {{$post->post}} --}}
-                            {{ substr($post->post, 0, 200) }}
-                            <a class="navbar-brand" href="{{route('post', $post->post_id)}}">
-                                ...more
-                            </a>
+                            {{ $post->post }}
                         </div>
                     </div>
 
@@ -35,24 +30,34 @@
                             </a> 
                         </div>
 
-                        <div class="col-md-3">
+                        <div class="col-md-2">
                             <a class="navbar-brand" href="{{route('save', $post->post_id)}}">
                                 save
                             </a> 
                         </div>
-                        
-                        <div class="col-md-3">
+
+                        <div class="col-md-1">
                             <a class="navbar-brand" href="{{route('like', $post->post_id)}}">
                                 {{$post->likes_count}} like
                             </a>
                         </div>
+                        
+                        <div class="col-md-3">
+                            <!-- Go to www.addthis.com/dashboard to customize your tools -->
+                            <div class="addthis_inline_share_toolbox_sw0p"></div>
+                        </div>
+
+                        <div class="col-md-1"></div>
                     </div>
-                   <hr/>
-                @endforeach
 
                 </div>
             </div>
         </div>
     </div>
 </div>
+@endsection
+
+@section('share')
+  <!-- Go to www.addthis.com/dashboard to customize your tools --> 
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5e6b421e9394db7c"></script>  
 @endsection

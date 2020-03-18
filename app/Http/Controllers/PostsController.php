@@ -27,7 +27,7 @@ class PostsController extends Controller
      */
     public function index()
     {
-        $posts = post::orderBy('created_at','desc')
+        $posts = Post::orderBy('created_at','desc')
         ->withCount('comments')
         ->withCount('likes')
         ->with('user')
@@ -86,9 +86,16 @@ class PostsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($post_id)
     {
-        //
+        $post = Post::find($post_id);
+        //   ->withCount('comments')
+        //   ->withCount('likes')
+        //   ->with('user')
+        //    ->get();
+        //     dd($post);
+        return view('post.post', compact('post'));
+        
     }
 
     /**

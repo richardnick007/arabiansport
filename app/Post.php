@@ -4,8 +4,12 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+
 class Post extends Model
 {
+    // seting my primary key to post_id
+    protected  $primaryKey = 'post_id';
+
    /**
      * The attributes that are mass assignable.
      *

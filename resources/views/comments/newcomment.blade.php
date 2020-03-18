@@ -19,7 +19,7 @@
                             <div class="col-md-6">
                                 <textarea class="form-control" name="comment"></textarea>
                             </div>
-                            @error('post')
+                            @error('comment')
                             <span class="text-danger" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>

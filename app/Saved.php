@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Like extends Model
+class Saved extends Model
 {
     /**
      * The attributes that are mass assignable.
@@ -15,12 +15,12 @@ class Like extends Model
         'post_id', 'user_id'
     ];
 
-     // get user that owns the post
+     // get user that owns the saved post
      function user(){
         return $this->belongsTo('App\User');
     }
 
-    // get post that owns this like
+    // get post that is saved
     function post(){
         return $this->belongsTo('App\Post', 'post_id', 'post_id');
     }

@@ -19,6 +19,11 @@ class CreateLikesTable extends Migration
             $table->unsignedBigInteger('post_id');
             $table->timestamps();
         });
+
+        Schema::table('likes', function (Blueprint $table) {
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('post_id')->references('post_id')->on('posts')->onDelete('cascade');
+        });
     }
 
     /**
