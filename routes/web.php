@@ -34,3 +34,4 @@ Route::get('/like/{post_id}', 'LikesController@like')->name('like');
 
 Route::get('/saved/{post_id}', 'SavedsController@saved')->name('save');
 Route::get('/savedpost/{user_id}', 'SavedsController@index')->name('savedposts');
+Route::get('/admin/blog');

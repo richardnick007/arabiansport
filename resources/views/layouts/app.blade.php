@@ -13,6 +13,26 @@
     <script src="{{ asset('js/app.js') }}" defer></script>
 
     <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{{asset('asset/css/vendor/bootstrap.min.css')}}">
+    <!-- Icon Font CSS -->
+    <link rel="stylesheet" href="{{asset('asset/css/vendor/bicon.min.css')}}">
+    <!-- Flat Icon CSS -->
+    <link rel="stylesheet" href="{{asset('asset/css/vendor/flaticon.css')}}">
+    <!-- audio & video player CSS -->
+    <link rel="stylesheet" href="{{asset('asset/css/plugins/plyr.css')}}">
+    <!-- Slick CSS -->
+    <link rel="stylesheet" href="{{asset('asset/css/plugins/slick.min.css')}}">
+    <!-- nice-select CSS -->
+    <link rel="stylesheet" href="{{asset('asset/css/plugins/nice-select.css')}}">
+    <!-- perfect scrollbar css -->
+    <link rel="stylesheet" href="{{asset('asset/css/plugins/perfect-scrollbar.css')}}">
+    <!-- light gallery css -->
+    <link rel="stylesheet" href="{{asset('asset/css/plugins/lightgallery.min.css')}}">
+    <!-- Main Style CSS -->
+    <link rel="stylesheet" href="{{asset('asset/css/style.css')}}">
+
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
@@ -83,5 +103,32 @@
     </div>
     @yield('share')
     
+
+<footer>
+    <!-- Modernizer JS -->
+    <script src="asset/js/modernizr-3.6.0.min.js"></script>
+    <!-- jQuery JS -->
+    <script src="asset/js/vendor/jquery-3.3.1.min.js"></script>
+    <!-- Popper JS -->
+    <script src="asset/js/popper.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="asset/js/vendor/bootstrap.min.js"></script>
+    <!-- Slick Slider JS -->
+    <script src="asset/js/plugins/slick.min.js"></script>
+    <!-- nice select JS -->
+    <script src="asset/js/plugins/nice-select.min.js"></script>
+    <!-- audio video player JS -->
+    <script src="asset/js/plugins/plyr.min.js"></script>
+    <!-- perfect scrollbar js -->
+    <script src="/asset/js/plugins/perfect-scrollbar.min.js"></script>
+    <!-- light gallery js -->
+    <script src="/asset/js/plugins/lightgallery-all.min.js"></script>
+    <!-- image loaded js -->
+    <script src="/asset/js/plugins/imagesloaded.pkgd.min.js"></script>
+    <!-- isotope filter js -->
+    <script src="/asset/js/plugins/isotope.pkgd.min.js"></script>
+    <!-- Main JS -->
+    <script src="/asset/js/main.js"></script>
+</footer>
 </body>
 </html>

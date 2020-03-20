@@ -1,0 +1,1 @@
+web:vendor/bin/heroku-app-appache2 public/
